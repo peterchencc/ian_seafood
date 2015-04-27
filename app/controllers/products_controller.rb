@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.all.limit(10)
+    @products = Product.page(params[:page])
   end
 
   def show
