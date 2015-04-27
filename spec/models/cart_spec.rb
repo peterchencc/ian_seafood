@@ -1,5 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Cart, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe "#add_line_item" do
+    xit "it should add product to line_items"
+  end
+
+  describe "#total" do
+    xit "it should sum line_items amount"
+  end
 end
