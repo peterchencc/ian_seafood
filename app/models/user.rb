@@ -7,6 +7,19 @@ class User < ActiveRecord::Base
 
   before_save :ensure_authentication_token
 
+  def self.get_facebook_user_data(access_token)
+    conn = Faraday.new(:url => 'https://graph.facebook.com/me')
+    response = conn.get "/me", { :access_token => access_token }
+    data = JSON.parse(response.body)
+
+    if response.status == 200
+      data
+    else
+      Rails.logger.warn(data)
+      nil
+    end
+  end
+
   def self.from_omniauth(auth)
     user = where( fb_uid: auth.uid ).first
 

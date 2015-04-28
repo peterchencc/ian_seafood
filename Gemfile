@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'faraday'
 
 gem 'kaminari'
 
