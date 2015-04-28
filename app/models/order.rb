@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
 
   validates_presence_of :name
-  has_many :line_items
+  has_many :line_items, :dependent => :destroy
 
   def add_line_items(cart)
     cart.line_items.each do |item|

@@ -1,6 +1,6 @@
 class Cart < ActiveRecord::Base
 
-  has_many :line_items
+  has_many :line_items, :dependent => :destroy
 
   def add_line_item(product)
     this_line_item = self.line_items.find_by( product_id: product.id )
