@@ -28,7 +28,6 @@ RSpec.describe "API_V1::Auth", :type => :request do
 
     expect(response).to have_http_status(200)
 
-    user = User.last
     expect(response.body).to eq(
       {
         :message => "Ok",
