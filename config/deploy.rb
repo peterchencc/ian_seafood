@@ -4,7 +4,7 @@
 lock '3.4.0'
 
 set :application, 'shopping-exercise'
-set :repo_url, 'git@github.com:ihower/shopping-exercise-ac4.git'
+set :repo_url, 'git@github.com:vneverz/shopping-exercise-ac4.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

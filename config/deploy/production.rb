@@ -5,7 +5,7 @@
 
 set :deploy_to, '/home/deploy/shopping'
 
-server '139.162.27.30', user: 'deploy', roles: %w{app db web}, my_property: :my_value
+server '139.162.24.35', user: 'deploy', roles: %w{app db web}, my_property: :my_value
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
