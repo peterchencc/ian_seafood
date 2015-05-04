@@ -3,14 +3,14 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-set :application, 'shopping-exercise'
+set :application, 'inseason'
 set :repo_url, 'git@github.com:vneverz/shopping-exercise-ac4.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, '/home/deploy/shopping'
+# set :deploy_to, '/home/deploy/inseason'
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -36,7 +36,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
-set :passenger_restart_command, "touch #{deploy_to}/current/tmp/restart.txt"
+set :passenger_restart_command, -> { "touch #{deploy_to}/current/tmp/restart.txt" }
 set :passenger_restart_options, ''
 
 namespace :deploy do
@@ -48,6 +48,6 @@ namespace :deploy do
       #   execute :rake, 'cache:clear'
       # end
     end
-  end
 
+  end
 end
