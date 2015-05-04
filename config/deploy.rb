@@ -8,9 +8,10 @@ set :repo_url, 'git@github.com:vneverz/shopping-exercise-ac4.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, '/home/deploy/inseason'
+set :deploy_to, '/home/deploy/inseason'
 
 # Default value for :scm is :git
 # set :scm, :git
