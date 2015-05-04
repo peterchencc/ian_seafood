@@ -10,7 +10,7 @@ set :repo_url, 'git@github.com:ihower/shopping-exercise-ac4.git'
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/home/deploy/shopping'
+# set :deploy_to, '/home/deploy/shopping'
 
 # Default value for :scm is :git
 # set :scm, :git
