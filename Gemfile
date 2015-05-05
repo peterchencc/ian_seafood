@@ -10,6 +10,8 @@ gem 'rails', '4.2.1'
 #gem 'sqlite3'
 
 gem 'mysql2'
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
