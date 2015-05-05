@@ -18,17 +18,63 @@
   ga('send', 'pageview');
 </script>
 <% end %>
+<div class="main">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            <%=image_tag("logo.png", alt: "Edit Entry")  %>
+        </div>
 
- <% if current_user %>
-    <%= link_to('登出', destroy_user_session_path, :method => :delete) %> |
-    <%= link_to('修改密碼', edit_registration_path(:user)) %>
-<% else %>
-    <%= link_to('註冊', new_registration_path(:user)) %> |
-    <%= link_to('登入', new_session_path(:user)) %> |
-    <%= link_to "Facebook 登入", user_omniauth_authorize_path(:facebook) %>
-<% end %>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <% if current_user %>
+            <p class="navbar-text navbar-right"><%= link_to('修改密碼', edit_registration_path(:user)) %> |           
+            <%= link_to('登出', destroy_user_session_path, :method => :delete) %></p>  
+            
+            <% else %>
+            <p class="navbar-text navbar-right"><%= link_to('註冊', new_registration_path(:user)) %> |
+            <%= link_to('登入', new_session_path(:user)) %></p>
+           
+  
+            <% end %>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </div> 
+  <div id="main-container" class="container">
+      <div class="row">
 
-<%= yield %>
+        <div id="content" class="col-xs-12">
+
+        <% if flash[:notice] %>
+          <div class="alert alert-success"><%= flash[:notice] %></div>
+        <% end %>
+
+        <% if flash[:alert] %>
+          <div class="alert alert-warning"><%= flash[:alert] %></div>
+        <% end %>
+      </div>
+    </div>
+ </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-md-2"></div>        
+      <div class="col-xs-12 col-md-10">
+         <%= yield %>
+      </div>
+    </div>
+  </div><!-- /left bar -->
+</div> <!-- /.main -->
+
+
+
 
 </body>
 </html>

@@ -1,5 +1,9 @@
 class OrdersController < ApplicationController
 
+  def index
+    @orders = Order.page(params[:page]).per(10)
+  end
+
   def new
     @order = Order.new
   end
