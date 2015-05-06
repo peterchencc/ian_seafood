@@ -5,7 +5,3 @@ development:
 test:
   app_id:
   secret:
-
-production:
-  app_id: 421126494733049
-  secret: 9e75fbbacc7ebda41cbd4af0eac2761f
