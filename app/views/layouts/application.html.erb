@@ -35,12 +35,13 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <% if current_user %>
-            <p class="navbar-text navbar-right"><%= link_to('修改密碼', edit_registration_path(:user)) %> |           
+            <p class="navbar-text "><%= link_to('修改密碼', edit_registration_path(:user)) %> |           
             <%= link_to('登出', destroy_user_session_path, :method => :delete) %></p>  
             
             <% else %>
-            <p class="navbar-text navbar-right"><%= link_to('註冊', new_registration_path(:user)) %> |
-            <%= link_to('登入', new_session_path(:user)) %></p>
+            <p class="navbar-text "><%= link_to('註冊', new_registration_path(:user)) %> |
+            <%= link_to('登入', new_session_path(:user)) %> |
+            <%= link_to "Facebook 登入", user_omniauth_authorize_path(:facebook) %></p>
            
   
             <% end %>
@@ -63,9 +64,12 @@
       </div>
     </div>
  </div>
+ <!-- left-bar -->
   <div class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 col-md-2"></div>        
+      <div class="col-xs-12 col-md-2">
+        
+      </div>        
       <div class="col-xs-12 col-md-10">
          <%= yield %>
       </div>
