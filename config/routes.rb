@@ -9,14 +9,24 @@ Rails.application.routes.draw do
   get 'welcome' => 'welcome#index'
   root 'welcome#index'
 
-  resources :products
+  resources :products do
+    collection do
+    get :latest
+    get :popular
+
+    post :bulk_update
+    post :bulk_delete
+  end
+    # resources :packet
+    resource :detail, :controller => "product_details"
+
+  end
   resources :orders
   resource :cart
 
   scope :path => '/api/v1/', :module => "api_v1", :defaults => { :format => :json }, :as => 'v1' do
     post "login" => "auth#login"
     post "logout" => "auth#logout"
-
     resources :products
   end
   namespace :admin do

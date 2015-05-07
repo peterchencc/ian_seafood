@@ -11,30 +11,30 @@
 </p>
 <hr>
 
-
-<table class="table table-bordered">
-<% @products.each do |e| %>
-
-  <tr>
-    <td>
-      <%= check_box_tag "ids[]", e.id, false %>
-      <%= e.name %>
-      <%= image_tag(e.image_url, :width => 50) %>
-      $<%= e.price %>
-    </td>
-    <td>
-    <%= link_to "顯示", product_path(e), :class => "btn btn-primary" %>
-
-    </td>
-  </tr>
-
-<% end %>
-</table>
-
+<%= form_tag bulk_update_products_path do %>
+  <table class="table table-bordered">
+  <% @products.each do |e| %>
+    <tr>
+      <td>
+        <%= check_box_tag "ids[]", e.id, false %> 
+        <%= e.name %>
+      </td>
+      <td>
+        <%= image_tag(e.image_url, :width => 50) %>
+      </td>
+      <td>  
+        $<%= e.price %>
+      </td>
+      <td>
+      <%= link_to "顯示", product_path(e), :class => "btn btn-primary" %>
+      <%= link_to "料理包", product_packet_path(e), :class => "btn btn-primary" %>
+      <%= link_to "編輯", edit_product_path(e), :class => "btn btn-default" %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
   <%= submit_tag "刪除", :name => "btn-delete" %>
-
-  <%= submit_tag "Publish", :name => "btn-publish" %>
-
-<div style="clear: both"></div>
+  <%= submit_tag "上架", :name => "btn-publish" %>
+<% end %>
 
 <%= paginate @products %>

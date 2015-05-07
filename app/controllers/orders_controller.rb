@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
 
     if @order.save
       current_cart.destroy
-      redirect_to root_path
+      redirect_to '/products'
     else
       render :action => :new
     end
