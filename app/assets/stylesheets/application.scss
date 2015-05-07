@@ -1,2 +1,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.nav_left {
+  width: 100%;
+  height: 100%; 
+}
+
+.clearfix {
+  width: 100%;
+  height: 1px;
+  float:none;
+  clear:both;
+  position: relative;
+  margin:-1px 0 0 0;
+}

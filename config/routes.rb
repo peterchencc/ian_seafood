@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'products#index'
+  get 'welcome' => 'welcome#index'
+  root 'welcome#index'
 
   resources :products
   resources :orders
@@ -17,6 +18,9 @@ Rails.application.routes.draw do
     post "logout" => "auth#logout"
 
     resources :products
+  end
+  namespace :admin do
+   resources :products
   end
 
   # Example of regular route:

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150506090827) do
+ActiveRecord::Schema.define(version: 20150506124559) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20150506090827) do
     t.integer  "in_stock_qty", limit: 4,     default: 0, null: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.string   "image_url",    limit: 255
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 20150506090827) do
     t.string   "fb_uid",                 limit: 255
     t.string   "fb_access_token",        limit: 255
     t.datetime "fb_expires_at"
+    t.string   "role",                   limit: 255
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree

@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:facebook]
 
   before_save :ensure_authentication_token
+  def admin?
+    self.role == "admin"
+  end
 
   def self.get_facebook_user_data(access_token)
     conn = Faraday.new(:url => 'https://graph.facebook.com/me')
