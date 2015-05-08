@@ -1,4 +1,4 @@
-  
+<%= link_to "新增產品", new_product_path(@product), :class => "btn btn-primary" %> 
 <ul>
 <% current_cart.line_items.each do |item| %>
   <li><%= item.qty %> x <%= item.product.name %> $<%= item.amount %></li>
@@ -27,8 +27,8 @@
     </tr>
   <% end %>
   </table>
-  <%= submit_tag "刪除", :name => "btn-delete" %>
-  <%= submit_tag "上架", :name => "btn-publish" %>
+  <%= submit_tag "刪除", :name => "btn-delete", :class => "btn btn-default" %>
+  <%= submit_tag "上架", :name => "btn-publish", :class => "btn btn-default" %>
 <% end %>
 
 <%= paginate @products %>
