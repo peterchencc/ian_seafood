@@ -19,12 +19,11 @@
   <%= f.text_field :in_stock_qty, :size => "60" %>
 <br>
 <br>
+
 <div class="form-group">
-  <%= f.label :image_url, "產品圖片" %>
-  <%= f.file_field :image_url %>
-  <%= check_box_tag "event[_destroy_image_url]" %>移除照片
+  <%= f.label :image, "產品圖片" %>
+  <%= f.file_field :image %>
 </div>
- <br>
-  <%= f.text_field :in_stock_qty, :size => "60" %>
+
 
   <%= f.submit "送出", :class => "btn btn-primary" %>

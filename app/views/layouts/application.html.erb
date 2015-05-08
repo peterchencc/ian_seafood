@@ -106,8 +106,15 @@
                     </ul>
                   </div>
                 </li>
-                <li><span class="glyphicon glyphicon-shopping-cart"><%= link_to('訂單管理', orders_path()) %></span>
-                
+                <li>                  
+                  <%= link_to products_path do %> 
+                    <span class="glyphicon glyphicon-shopping-cart"></span> 產品管理
+                  <% end %>
+                </li>                
+                <li>                  
+                  <%= link_to orders_path do %> 
+                    <span class="glyphicon glyphicon-shopping-cart"></span> 訂單管理
+                  <% end %>
                 </li>
                 <li><a href="#"><span class="glyphicon glyphicon-calendar"></span> WithBadges <span class="badge pull-right">42</span></a></li>
                 <li><a href=""><span class="glyphicon glyphicon-cog"></span> PreferencesMenu</a></li>

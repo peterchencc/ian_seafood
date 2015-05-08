@@ -1,5 +1,6 @@
 class AddImgToProduct < ActiveRecord::Migration
   def change
-    add_attachment :products, :image_url
+    remove_column :products, :image_url
+    add_attachment :products, :image
   end
 end

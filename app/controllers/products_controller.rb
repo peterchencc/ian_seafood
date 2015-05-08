@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
+
   before_action :authenticate_user!
   before_action :check_admin
+
   def index
     @products = Product.page(params[:page]).per(7)
   end
@@ -10,10 +12,12 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    
+    @product = Product.find(params[:id])
   end
 
   def update
+    @product = Product.find(params[:id])
+
     if @product.update( product_params )
 
       flash[:notice] = "編輯成功"
@@ -57,7 +61,7 @@ end
   end
 
   def product_params
-    params.require(:product).permit(:name,:_destory_logo, :description, :price, :in_stock_qty)
+    params.require(:product).permit(:name, :image, :description, :price, :in_stock_qty)
   end
 
 end

@@ -14,7 +14,7 @@
         <%= e.name %>
       </td>
       <td>
-        <%= image_tag(e.image_url, :width => 50) %>
+        <%= image_tag( e.image(:thumb) ) %>
       </td>
       <td>  
         $<%= e.price %>
