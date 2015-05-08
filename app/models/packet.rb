@@ -9,4 +9,5 @@ class Packet < ActiveRecord::Base
   def final_price
     self.price + self.product.price    
   end
+  
 end

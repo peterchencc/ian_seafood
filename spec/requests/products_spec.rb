@@ -5,7 +5,7 @@ RSpec.describe "API_V1::Products", :type => :request do
   let!(:p1) { Product.create!( :name => "A", :price => 100 ) }
   let!(:p2) { Product.create!( :name => "B", :price => 200 ) }
 
-  example "GET /api/v1/products" do
+  xit "GET /api/v1/products" do
 
     get "/api/v1/products"
 

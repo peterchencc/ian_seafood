@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150508101915) do
+ActiveRecord::Schema.define(version: 20150508110422) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150508101915) do
     t.integer  "order_id",   limit: 4
     t.integer  "packet_id",  limit: 4
     t.integer  "subtotal",   limit: 4,             null: false
+    t.integer  "product_id", limit: 4,             null: false
   end
 
   add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id", using: :btree
@@ -39,14 +40,17 @@ ActiveRecord::Schema.define(version: 20150508101915) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.string   "status",     limit: 255
+    t.integer  "user_id",    limit: 4
   end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "packets", force: :cascade do |t|
     t.string   "title",      limit: 255,   null: false
     t.text     "content",    limit: 65535
     t.integer  "product_id", limit: 4,     null: false
     t.integer  "price",      limit: 4,     null: false
-    t.string   "video",      limit: 255,   null: false
+    t.string   "video",      limit: 255
     t.text     "ingredient", limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
@@ -55,9 +59,9 @@ ActiveRecord::Schema.define(version: 20150508101915) do
   add_index "packets", ["product_id"], name: "index_packets_on_product_id", using: :btree
 
   create_table "pictures", force: :cascade do |t|
-    t.text     "title",              limit: 65535, null: false
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.string   "title",              limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "image_file_name",    limit: 255
     t.string   "image_content_type", limit: 255
     t.integer  "image_file_size",    limit: 4
@@ -72,7 +76,7 @@ ActiveRecord::Schema.define(version: 20150508101915) do
     t.string   "name",               limit: 255,               null: false
     t.integer  "price",              limit: 4,                 null: false
     t.text     "description",        limit: 65535
-    t.integer  "in_stock_qty",       limit: 4,     default: 0, null: false
+    t.integer  "in_stock_qty",       limit: 4,     default: 0
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
     t.string   "image_file_name",    limit: 255

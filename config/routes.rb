@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     post "logout" => "auth#logout"
 
     resources :products
+    resources :orders
   end
 
   resources :products

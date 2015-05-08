@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
+  has_many :orders
+  
   before_save :ensure_authentication_token
   def admin?
     self.role == "admin"
