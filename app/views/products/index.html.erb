@@ -6,7 +6,7 @@
 </ul>
 
 <%= form_tag bulk_update_products_path do %>
-  <table class="table table-bordered">
+  <table class="table table-striped">
   <% @products.each do |e| %>
     <tr>
       <td>
@@ -28,7 +28,7 @@
   <% end %>
   </table>
   <%= submit_tag "刪除", :name => "btn-delete", :class => "btn btn-danger" %>
-  <%= submit_tag "上架", :name => "btn-publish", :class => "btn btn-success" %>
+  <%#=submit_tag "上架", :name => "btn-publish", :class => "btn btn-success" %>
 <% end %>
 
 <%= paginate @products %>
