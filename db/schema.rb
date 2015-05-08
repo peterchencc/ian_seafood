@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150508082351) do
+ActiveRecord::Schema.define(version: 20150508101915) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -55,11 +55,18 @@ ActiveRecord::Schema.define(version: 20150508082351) do
   add_index "packets", ["product_id"], name: "index_packets_on_product_id", using: :btree
 
   create_table "pictures", force: :cascade do |t|
-    t.text     "title",      limit: 65535, null: false
-    t.string   "image_url",  limit: 255
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.text     "title",              limit: 65535, null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
+    t.string   "imageable_type",     limit: 255
+    t.integer  "imageable_id",       limit: 4
   end
+
+  add_index "pictures", ["imageable_type", "imageable_id"], name: "index_pictures_on_imageable_type_and_imageable_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "name",               limit: 255,               null: false

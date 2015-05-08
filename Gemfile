@@ -14,6 +14,8 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'paperclip'
 
+gem 'nested_form_fields'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

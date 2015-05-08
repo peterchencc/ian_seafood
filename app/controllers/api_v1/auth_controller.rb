@@ -24,6 +24,7 @@ class ApiV1::AuthController < ApiController
            }
         })
         user = User.from_omniauth(auth_hash)
+
       end
 
       success = fb_data && user.persisted?
@@ -32,6 +33,8 @@ class ApiV1::AuthController < ApiController
     if success
       render :json => { :message => "Ok",
                         :auth_token => user.authentication_token,
+                        :user_name => user.name,
+                        :user_email => user.email,
                         :user_id => user.id }
     else
       render :json => { :message => "Failed" }, :status => 401

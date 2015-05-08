@@ -13,6 +13,7 @@ class PacketsController < ApplicationController
 
   def new
     @packet = @product.packets.build
+    @packet.pictures.build if @packet.pictures.empty?
   end
 
   def create
@@ -27,6 +28,8 @@ class PacketsController < ApplicationController
 
   def edit
     @packet = @product.packets.find( params[:id] )
+    @packet.pictures.build if @packet.pictures.empty?
+
   end
 
   def update
@@ -51,7 +54,7 @@ class PacketsController < ApplicationController
   protected
 
   def packet_params
-    params.require(:packet).permit(:title, :content, :price, :video)
+    params.require(:packet).permit(:title, :content, :price, :video, :pictures_attributes => [:id, :title, :image, :_destroy] )
   end
 
   def set_product

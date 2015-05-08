@@ -18,4 +18,16 @@
   <%= f.label "影片" %>
   <%= f.text_field :video, :size => "60" %>
 <br>
-  <%= f.submit "送出", :class => "btn btn-primary" %>
+
+<%= f.nested_fields_for :pictures do |ff| %>
+    <%= f.label "圖片" %>   
+    <%= ff.text_field :title %>
+    <%= ff.file_field :image %>    
+    <%= ff.remove_nested_fields_link %>
+<% end %>
+
+<p><%= f.add_nested_fields_link :pictures, "新增圖片", :class => "btn btn-xs btn-default"  %></p>
+
+<br>
+
+<%= f.submit "送出", :class => "btn btn-primary" %>
