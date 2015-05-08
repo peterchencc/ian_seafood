@@ -35,13 +35,18 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <% if current_user %>
-            <p class="navbar-text "><%= link_to('修改密碼', edit_registration_path(:user)) %> |           
-            <%= link_to('登出', destroy_user_session_path, :method => :delete) %></p>  
+            <p class="navbar-text ">
+            Hi!<%= current_user.name || current_user.email%>
+            <%= image_tag current_user.image %>
+            <%= link_to('修改密碼', edit_registration_path(:user)) %> |           
+            <%= link_to('登出', destroy_user_session_path, :method => :delete) %>
+            </p>
             
             <% else %>
-            <p class="navbar-text "><%= link_to('註冊', new_registration_path(:user)) %> |
-            <%= link_to('登入', new_session_path(:user)) %> |
-            <%= link_to "Facebook 登入", user_omniauth_authorize_path(:facebook) %></p>
+            <div class="navbar-text login-top">
+            <%= link_to('註冊', new_registration_path(:user)) %> |
+            <%= link_to('登入', new_session_path(:user)) %>   
+            <%= link_to "Facebook 登入", user_omniauth_authorize_path(:facebook) %></div>
            
   
             <% end %>

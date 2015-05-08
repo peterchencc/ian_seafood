@@ -14,7 +14,7 @@ RSpec.describe "API_V1::Auth", :type => :request do
     expect(response.body).to eq(
       {
         :message => "Ok",
-        :user_token => @user.authentication_token,
+        :auth_token => @user.authentication_token,
         :user_id => @user.id
       }.to_json
     )
@@ -31,7 +31,7 @@ RSpec.describe "API_V1::Auth", :type => :request do
     expect(response.body).to eq(
       {
         :message => "Ok",
-        :user_token => @user.authentication_token,
+        :auth_token => user.authentication_token,
         :user_id => @user.id
       }.to_json
     )
@@ -49,7 +49,7 @@ RSpec.describe "API_V1::Auth", :type => :request do
     expect(response.body).to eq(
       {
         :message => "Ok",
-        :user_token => user.authentication_token,
+        :auth_token => user.authentication_token,
         :user_id => user.id
       }.to_json
     )
@@ -63,7 +63,7 @@ RSpec.describe "API_V1::Auth", :type => :request do
   example "logout and it should expire token" do
     token = @user.authentication_token
 
-    post "/api/v1/logout", :user_email => @user.email, :user_token => token
+    post "/api/v1/logout", :auth_token => token
     expect(response).to have_http_status(200)
 
     @user.reload

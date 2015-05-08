@@ -1,15 +1,9 @@
-
+  
 <ul>
 <% current_cart.line_items.each do |item| %>
   <li><%= item.qty %> x <%= item.product.name %> $<%= item.amount %></li>
 <% end %>
 </ul>
-
-<p>
-  Total: <%= current_cart.total %>
-  <%= link_to "Checkout!", new_order_path %>
-</p>
-<hr>
 
 <%= form_tag bulk_update_products_path do %>
   <table class="table table-bordered">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150507082035) do
+ActiveRecord::Schema.define(version: 20150508074528) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -19,17 +19,17 @@ ActiveRecord::Schema.define(version: 20150507082035) do
   end
 
   create_table "line_items", force: :cascade do |t|
-    t.integer  "product_id", limit: 4,             null: false
     t.integer  "cart_id",    limit: 4
     t.integer  "qty",        limit: 4, default: 1
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "order_id",   limit: 4
+    t.integer  "packet_id",  limit: 4
+    t.integer  "subtotal",   limit: 4,             null: false
   end
 
   add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id", using: :btree
   add_index "line_items", ["order_id"], name: "index_line_items_on_order_id", using: :btree
-  add_index "line_items", ["product_id"], name: "index_line_items_on_product_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20150507082035) do
     t.string   "email",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.string   "status",     limit: 255
   end
 
   create_table "packets", force: :cascade do |t|
@@ -45,7 +46,7 @@ ActiveRecord::Schema.define(version: 20150507082035) do
     t.text     "content",    limit: 65535
     t.integer  "product_id", limit: 4,     null: false
     t.integer  "price",      limit: 4,     null: false
-    t.string   "vedio",      limit: 255,   null: false
+    t.string   "video",      limit: 255,   null: false
     t.text     "ingredient", limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
@@ -88,6 +89,8 @@ ActiveRecord::Schema.define(version: 20150507082035) do
     t.string   "fb_access_token",        limit: 255
     t.datetime "fb_expires_at"
     t.string   "role",                   limit: 255
+    t.string   "name",                   limit: 255
+    t.string   "image",                  limit: 255
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree

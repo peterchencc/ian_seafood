@@ -1,6 +1,6 @@
-<% if @packet.errors.any? %>
+<% if @product.errors.any? %>
       <ul>
-      <% @packet.errors.full_messages.each do |msg| %>
+      <% @product.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>

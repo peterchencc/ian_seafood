@@ -6,7 +6,7 @@ class CreatePackets < ActiveRecord::Migration
       t.text :content
       t.integer :product_id, null: false
       t.integer :price, null: false
-      t.string :vedio, :null => false
+      t.string :video, :null => false
       t.text :ingredient
 
       t.timestamps null: false

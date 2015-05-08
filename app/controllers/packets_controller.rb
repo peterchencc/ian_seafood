@@ -51,7 +51,7 @@ class PacketsController < ApplicationController
   protected
 
   def packet_params
-    params.require(:packet).permit(:title, :content, :price, :vedio)
+    params.require(:packet).permit(:title, :content, :price, :video)
   end
 
   def set_product
