@@ -1,4 +1,4 @@
-<%= form_for @product, :url => products_path(@product) do |f| %>
+<%= form_for @product,:html => {:class => 'form-horizontal'}, :url => products_path(@product) do |f| %>
 
   <%= render :partial => "form", :locals => { :f => f } %>
 
