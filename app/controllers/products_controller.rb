@@ -52,14 +52,6 @@ end
 
   protected
 
-  def check_admin
-    unless current_user.admin?
-      flash[:alert] = "Nooooooooooo!"
-      redirect_to root_path
-      return
-    end
-  end
-
   def product_params
     params.require(:product).permit(:name, :image, :description, :price, :in_stock_qty)
   end

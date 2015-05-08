@@ -7,6 +7,14 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def check_admin
+    unless current_user.admin?
+      flash[:alert] = "Nooooooooooo!"
+      redirect_to root_path
+      return
+    end
+  end
+
   def current_cart
     @cart || set_cart
   end
