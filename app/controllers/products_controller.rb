@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    
   end
 
   def update
@@ -53,6 +54,10 @@ end
       redirect_to root_path
       return
     end
+  end
+
+  def product_params
+    params.require(:product).permit(:name,:_destory_logo, :description, :price, :in_stock_qty)
   end
 
 end

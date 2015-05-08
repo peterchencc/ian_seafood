@@ -6,16 +6,25 @@
       </ul>
 <% end %>
 
-  <%= f.label "名稱" %>
-  <%= f.text_field :title, :size => "30" %>
+  <%= f.label "產品名" %>
+  <%= f.text_field :name, :size => "30" %>
 <br>
   <%= f.label "內容" %>
-  <%= f.text_area :content, :size => "30x10", :class => "vertical-base"%>
+  <%= f.text_area :description, :size => "30x10", :class => "vertical-base"%>
 <br>  
   <%= f.label "價格" %>
   <%= f.text_field :price %>
 <br>
-  <%= f.label "影片" %>
-  <%= f.text_field :video, :size => "60" %>
+  <%= f.label "庫存數" %>
+  <%= f.text_field :in_stock_qty, :size => "60" %>
 <br>
+<br>
+<div class="form-group">
+  <%= f.label :image_url, "產品圖片" %>
+  <%= f.file_field :image_url %>
+  <%= check_box_tag "event[_destroy_image_url]" %>移除照片
+</div>
+ <br>
+  <%= f.text_field :in_stock_qty, :size => "60" %>
+
   <%= f.submit "送出", :class => "btn btn-primary" %>

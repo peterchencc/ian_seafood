@@ -12,6 +12,7 @@ gem 'rails', '4.2.1'
 gem 'mysql2'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem 'paperclip'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

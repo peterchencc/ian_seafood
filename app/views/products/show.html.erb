@@ -8,3 +8,6 @@ $<%= @product.price %>
 <p>
 <%= @product.description %>
 </p>
+<% if @product.image_url.exists? %>
+5 
+6   <%= image_tag( @product.image_url(:thumb) ) %>

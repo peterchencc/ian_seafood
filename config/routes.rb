@@ -29,6 +29,9 @@ Rails.application.routes.draw do
     post "logout" => "auth#logout"
     resources :products
   end
+
+  resources :products
+  
   namespace :admin do
    resources :products
   end

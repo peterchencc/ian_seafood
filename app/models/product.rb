@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+  attr_accessor :_destory_image_url
   has_many :packets, :dependent => :destroy
   has_many :line_items
 
