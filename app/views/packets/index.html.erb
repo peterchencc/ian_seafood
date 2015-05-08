@@ -1,0 +1,20 @@
+<h2><%= @product.name %> 料理包</h2>
+
+<table class="table table-bordered">
+  <% @packets.each do |a| %>
+    <tr>
+      <td><%= a.title %></td>
+      <td>
+
+        <%= link_to "詳細頁面", product_packet_path(@product, a), :class => "btn btn-primary" %>
+
+        <%= link_to "編輯", edit_product_packet_path(@product, a), :class => "btn btn-primary" %>
+
+        <%= link_to "刪除", product_packet_path(@product, a), :method => "delete", :class => "btn btn-danger" %>
+
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "新增", new_product_packet_path(@product), :class => "btn btn-primary" %>

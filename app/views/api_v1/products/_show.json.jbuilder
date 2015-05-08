@@ -5,6 +5,7 @@ json.price "價格 #{@i}"
 json.description "便宜又新鮮#{@i}"
 json.created_at "2015/05/06"
 json.updated_at "2015/05/07"
+json.in_stock_qty "目前有 #{@1i}個"
 json.photo "http://robohash.org/sitsequiquia.png?size=300x300"
 json.rating "4"
 

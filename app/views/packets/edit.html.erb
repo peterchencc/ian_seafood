@@ -1,0 +1,5 @@
+<%= form_for @packet, :url => product_packet_path(@product, @packet) do |f| %>
+
+  <%= render :partial => "form", :locals => { :f => f } %>
+
+<% end %>

@@ -11,13 +11,13 @@ Rails.application.routes.draw do
 
   resources :products do
     collection do
-    get :latest
-    get :popular
+      get :latest
+      get :popular
 
-    post :bulk_update
-    post :bulk_delete
-  end
-    # resources :packet
+      post :bulk_update
+      post :bulk_delete
+    end
+    resources :packets
     resource :detail, :controller => "product_details"
 
   end

@@ -1,1 +1,14 @@
-<%= paginate @articles %>
+<table class="table table-bordered">
+  <% @orders.each do |e| %>
+    <tr>
+      <td>
+        <%= e.name %>
+      </td>
+      <td>
+      <%= link_to "顯示", product_path(e), :class => "btn btn-primary" %>
+      <%= link_to "編輯", edit_product_path(e), :class => "btn btn-default" %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+  <%= paginate @orders %>

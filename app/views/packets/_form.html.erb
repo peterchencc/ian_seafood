@@ -1,0 +1,21 @@
+<% if @packet.errors.any? %>
+      <ul>
+      <% @packet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+<% end %>
+
+  <%= f.label "名稱" %>
+  <%= f.text_field :title, :size => "30" %>
+<br>
+  <%= f.label "內容" %>
+  <%= f.text_area :content, :size => "30x10", :class => "vertical-base"%>
+<br>  
+  <%= f.label "價格" %>
+  <%= f.text_field :price %>
+<br>
+  <%= f.label "影片" %>
+  <%= f.text_field :vedio, :size => "60" %>
+<br>
+  <%= f.submit "送出", :class => "btn btn-primary" %>

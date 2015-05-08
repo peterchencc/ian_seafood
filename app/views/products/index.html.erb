@@ -1,4 +1,4 @@
-<h2>Your Cart</h2>
+
 <ul>
 <% current_cart.line_items.each do |item| %>
   <li><%= item.qty %> x <%= item.product.name %> $<%= item.amount %></li>
@@ -27,7 +27,7 @@
       </td>
       <td>
       <%= link_to "顯示", product_path(e), :class => "btn btn-primary" %>
-      <%= link_to "料理包", product_packet_path(e), :class => "btn btn-primary" %>
+      <%= link_to "料理包", product_packets_path(e), :class => "btn btn-primary" %>
       <%= link_to "編輯", edit_product_path(e), :class => "btn btn-default" %>
       </td>
     </tr>

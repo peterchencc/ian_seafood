@@ -30,6 +30,8 @@ class User < ActiveRecord::Base
       user = self.new
       user.fb_uid = auth.uid
       user.email = auth.info.email
+      user.image = auth.info.image
+      user.name = auth.info.name
       user.password = Devise.friendly_token[0,20]
     end
 

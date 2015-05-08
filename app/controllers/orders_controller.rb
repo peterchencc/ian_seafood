@@ -7,6 +7,9 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
   end
+  def show
+    @order = Order.all
+  end
 
   def create
     @order = Order.new(order_params)
