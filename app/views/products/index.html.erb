@@ -20,15 +20,15 @@
         $<%= e.price %>
       </td>
       <td>
-      <%= link_to "顯示", product_path(e), :class => "btn btn-primary" %>
-      <%= link_to "料理包", product_packets_path(e), :class => "btn btn-primary" %>
+      <%= link_to "顯示", product_path(e), :class => "btn btn-info" %>
+      <%= link_to "料理包", product_packets_path(e), :class => "btn btn-warning" %>
       <%= link_to "編輯", edit_product_path(e), :class => "btn btn-default" %>
       </td>
     </tr>
   <% end %>
   </table>
-  <%= submit_tag "刪除", :name => "btn-delete", :class => "btn btn-default" %>
-  <%= submit_tag "上架", :name => "btn-publish", :class => "btn btn-default" %>
+  <%= submit_tag "刪除", :name => "btn-delete", :class => "btn btn-danger" %>
+  <%= submit_tag "上架", :name => "btn-publish", :class => "btn btn-success" %>
 <% end %>
 
 <%= paginate @products %>

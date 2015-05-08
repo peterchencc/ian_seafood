@@ -9,23 +9,22 @@
   <%= f.label "名稱" %>
   <%= f.text_field :title, :size => "30" %>
 <br>
-  <%= f.label "內容" %>
-  <%= f.text_area :content, :size => "30x10", :class => "vertical-base"%>
+  <h5>內容</h5>
+  <%= f.text_area :content, :size => "60x10", :class => "vertical-base"%>
 <br>  
   <%= f.label "價格" %>
   <%= f.text_field :price %>
 <br>
   <%= f.label "影片" %>
   <%= f.text_field :video, :size => "60" %>
-<br>
-
+<p>
 <%= f.nested_fields_for :pictures do |ff| %>
     <%= f.label "圖片" %>   
     <%= ff.text_field :title %>
     <%= ff.file_field :image %>    
     <%= ff.remove_nested_fields_link %>
 <% end %>
-
+</p>
 <p><%= f.add_nested_fields_link :pictures, "新增圖片", :class => "btn btn-xs btn-default"  %></p>
 
 <br>

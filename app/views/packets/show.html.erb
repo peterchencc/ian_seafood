@@ -4,11 +4,13 @@
 <p>價錢: <%= @packet.price %></p>
 <p>影片網址: <%= @packet.video %></p>
 <p>配料描述: <%= @packet.ingredient %></p>
-
+<p>
 <% @packet.pictures.each do |p| %>
   <%= p.title %>
   <%= image_tag p.image(:thumb) %>
 
 <% end %>
+</p>
 
-<%= link_to "回料理包列表", product_packets_path(@product) %>
+<%= link_to "回料理包列表", product_packets_path(@product), :class => "btn btn-primary"%>
+

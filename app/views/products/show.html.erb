@@ -9,5 +9,5 @@ $<%= @product.price %>
 </p>
 
 <% if @product.image.exists? %> 
-   <%= image_tag( @product.image ) %>
+   <%= image_tag( @product.image(:medium)) %>
 <%end %>
