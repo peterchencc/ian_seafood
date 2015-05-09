@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
 
     if @product.save
 
-      flash[:notice] = I18n.t("create_successful")
+      flash[:notice] = "新增成功"
 
       redirect_to products_path
     else

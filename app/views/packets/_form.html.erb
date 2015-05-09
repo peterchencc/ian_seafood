@@ -21,12 +21,12 @@
 <%= f.nested_fields_for :pictures do |ff| %>
     <%= f.label "圖片" %>   
     <%= ff.text_field :title %>
+    <span><%= ff.remove_nested_fields_link "" , :class => "glyphicon glyphicon-remove" %></span>
     <%= ff.file_field :image %>    
-    <%= ff.remove_nested_fields_link %>
 <% end %>
 </p>
 <p><%= f.add_nested_fields_link :pictures, "新增圖片", :class => "btn btn-xs btn-default"  %></p>
 
 <br>
-
+<%= link_to "回料理包列表", product_packets_path(@product), :class => "btn btn-info" %>
 <%= f.submit "送出", :class => "btn btn-primary" %>
