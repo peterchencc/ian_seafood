@@ -13,6 +13,7 @@ gem 'mysql2'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'paperclip'
+gem 'ransack'
 
 gem 'nested_form_fields'
 

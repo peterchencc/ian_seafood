@@ -7,6 +7,8 @@ class ProductsController < ApplicationController
     @products = Product.all
     @products = @products.only_published(current_user)
     @products = Product.page(params[:page]).per(7)
+    @q = Product.ransack(params[:q])
+    @products = @q.result(distinct: true).page(params[:page]).per(7)
   end
 
   def show

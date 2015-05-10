@@ -1,10 +1,33 @@
 
+<%= search_form_for @q do |f| %>
 <%= link_to "新增產品", new_product_path(@product), :class => "btn btn-primary" %>
+    <div class="row">
 
+      <div class=" col-xs-4 col-lg-4 no-padding">
+        <%= f.search_field :name_cont , :class => "form-control", :placeholder => "Search"%>
+      </div>
+      <div class=" col-xs-4 col-lg-4 no-padding">
+      <%= f.submit :class => "btn btn-default" %>
+      </div>  
+    </div>
+<% end %>
+
+
+<div class="rank">
+<%= sort_link(@q, :created_at, "建立時間", default_order: :desc) %>
+<%= sort_link(@q, :price, "價格", default_order: :desc) %>
+</div>
 <%= form_tag bulk_update_products_path do %>
   <table class="table table-striped">
+  <tr>
+    <th>產品名</th>
+    <th>圖片</th>
+    <th>價格</th>
+    <th>內容</th>
+    <th>建立時間</th>
+  </tr>
   <% @products.each do |e| %>
-    <tr >
+    <tr>
       <td class="<%= e.status %>">
         <%= check_box_tag "ids[]", e.id, false %> 
         <%= e.name %>
@@ -16,9 +39,12 @@
         $<%= e.price %>
       </td>
       <td>
-      <%= link_to "顯示", product_path(e), :class => "btn btn-info" %>
-      <%= link_to "料理包", product_packets_path(e), :class => "btn btn-warning" %>
-      <%= link_to "編輯", edit_product_path(e), :class => "btn btn-default" %>
+        <%= link_to "顯示", product_path(e), :class => "btn btn-info" %>
+        <%= link_to "料理包", product_packets_path(e), :class => "btn btn-warning" %>
+        <%= link_to "編輯", edit_product_path(e), :class => "btn btn-default" %>
+      </td>
+      <td>
+        <%= e.created_at.to_s(:short) %>
       </td>
     </tr>
   <% end %>
