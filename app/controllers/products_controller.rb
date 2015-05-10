@@ -4,6 +4,8 @@ class ProductsController < ApplicationController
   before_action :check_admin
 
   def index
+    @products = Product.all
+    @products = @products.only_published(current_user)
     @products = Product.page(params[:page]).per(7)
   end
 
@@ -58,20 +60,22 @@ class ProductsController < ApplicationController
   end
 
   redirect_to products_url
-end
+  end
 
-def bulk_delete
-  #Event.destroy_all
-  Product.first.destroy
+  def bulk_delete
+    #Event.destroy_all
+    Product.first.destroy
 
-  flash[:alert] = "砍了!"
-  redirect_to products_url
-end
+    flash[:alert] = "砍了!"
+    redirect_to products_url
+  end
+
+
 
   protected
 
   def product_params
-    params.require(:product).permit(:name, :image, :description, :price, :in_stock_qty)
+    params.require(:product).permit(:name, :image, :description, :price, :status,:in_stock_qty)
   end
 
 end

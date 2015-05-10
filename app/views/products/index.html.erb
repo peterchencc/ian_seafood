@@ -1,15 +1,11 @@
-<%= link_to "新增產品", new_product_path(@product), :class => "btn btn-primary" %> 
-<ul>
-<% current_cart.line_items.each do |item| %>
-  <li><%= item.qty %> x <%= item.product.name %> $<%= item.amount %></li>
-<% end %>
-</ul>
+
+<%= link_to "新增產品", new_product_path(@product), :class => "btn btn-primary" %>
 
 <%= form_tag bulk_update_products_path do %>
   <table class="table table-striped">
   <% @products.each do |e| %>
-    <tr>
-      <td>
+    <tr >
+      <td class="<%= e.status %>">
         <%= check_box_tag "ids[]", e.id, false %> 
         <%= e.name %>
       </td>
@@ -28,7 +24,7 @@
   <% end %>
   </table>
   <%= submit_tag "刪除", :name => "btn-delete", :class => "btn btn-danger" %>
-  <%#=submit_tag "上架", :name => "btn-publish", :class => "btn btn-success" %>
+  <%=submit_tag "發佈", :name => "btn-publish", :class => "btn btn-success" %>
 <% end %>
 
 <%= paginate @products %>

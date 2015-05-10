@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ShoppingExercise</title>
+  <title>Inseason</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -85,12 +85,12 @@
               <ul class="nav navbar-nav" id="sidenav01">
                 <li>                  
                   <%= link_to products_path do %> 
-                    <span class="glyphicon glyphicon-info-sign"></span> 產品管理
+                  <%=icon("info-sign")%> 產品管理
                   <% end %>
                 </li>                
                 <li>                  
                   <%= link_to orders_path do %> 
-                    <span class="glyphicon glyphicon-shopping-cart"></span> 訂單管理
+                    <%=icon("shopping-cart")%> 訂單管理
                   <% end %>
                 </li>
 <!--                 <li><a href="#"><span class="glyphicon glyphicon-calendar"></span> WithBadges <span class="badge pull-right">42</span></a></li> -->

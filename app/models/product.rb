@@ -5,6 +5,7 @@ class Product < ActiveRecord::Base
 
   belongs_to :user
 
+  STATUS = ["published", "draft"]
   validates_presence_of :name, :price, :in_stock_qty
   validates_numericality_of :in_stock_qty, :only_integer => true
   validates_numericality_of :price, :only_integer => true, :greater_than => 1
@@ -15,5 +16,7 @@ class Product < ActiveRecord::Base
   def rating
     5
   end
-
+  def self.only_published(u)
+    where( ["status = ? OR ( status = ? AND user_id = ? )", "published", "draft", u.id ] )
+  end
 end
