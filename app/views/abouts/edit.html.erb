@@ -1,0 +1,26 @@
+<%= form_for @about, :url => about_path(@about), :method => :patch do |f| %>
+
+  <% if @about.errors.any? %>
+    <ul>
+      <% @about.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= f.label "名稱" %>
+  <%= f.text_field :title, :size => "40" %>
+<br>
+  <h5>內容</h5>
+  <%= f.text_area :content, :size => "60x10", :class => "vertical-base"%>
+<p>
+  <%= f.label "電子信箱" %>
+  <%= f.text_field :email, :size => "40" %>
+<br>
+  <%= f.label "ATM帳號" %>
+  <%= f.text_field :atm_account, :size => "40" %>
+<br>
+  <%= f.label "聯絡電話" %>
+  <%= f.text_field :phone, :size => "40" %>
+</p>
+  <%= f.submit "送出", :class => "btn btn-primary" %>
+<% end %>

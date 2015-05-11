@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150511105253) do
+ActiveRecord::Schema.define(version: 20150511155450) do
+
+  create_table "abouts", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.string   "content",     limit: 255
+    t.string   "phone",       limit: 255
+    t.string   "email",       limit: 255
+    t.string   "atm_account", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -33,14 +43,15 @@ ActiveRecord::Schema.define(version: 20150511105253) do
   add_index "line_items", ["order_id"], name: "index_line_items_on_order_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "phone",      limit: 255
-    t.string   "address",    limit: 255
-    t.string   "email",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "status",     limit: 255
-    t.integer  "user_id",    limit: 4
+    t.string   "name",           limit: 255
+    t.string   "phone",          limit: 255
+    t.string   "address",        limit: 255
+    t.string   "email",          limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "status",         limit: 255
+    t.integer  "user_id",        limit: 4
+    t.string   "payment_method", limit: 255
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree

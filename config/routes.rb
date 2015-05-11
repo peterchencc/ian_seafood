@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   end
 
   resources :products
+  resources :abouts
   
   namespace :admin do
    resources :products
