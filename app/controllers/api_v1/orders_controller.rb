@@ -1,10 +1,10 @@
 class ApiV1::OrdersController < ApiController
 
-  before_action :authenticate_user!, only => :index
+  # before_action :authenticate_user!, only => :index
 
-  def index
-    @orders = current_user.orders
-  end
+  # def index
+  #   @orders = current_user.orders
+  # end
 
   def create
     @order = Order.new( name: params[:name],
