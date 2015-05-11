@@ -5,7 +5,6 @@ class PacketsController < ApplicationController
   before_action :check_admin
 
   def index
-    
     @packets = @product.packets
   end
 
@@ -56,7 +55,7 @@ class PacketsController < ApplicationController
   protected
 
   def packet_params
-    params.require(:packet).permit(:title, :content, :price, :video, :pictures_attributes => [:id, :title, :image, :_destroy] )
+    params.require(:packet).permit(:title, :content, :price, :video, :ingredient, :pictures_attributes => [:id, :title, :image, :_destroy] )
   end
 
   def set_product

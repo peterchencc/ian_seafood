@@ -4,9 +4,10 @@
   <% @packets.each do |a| %>
     <tr>
       <td><%= a.title %></td>
+      <td>$<%= a.price %></td>
       <td>
 
-        <%= link_to "詳細頁面", product_packet_path(@product, a), :class => "btn btn-info" %>
+        <%= link_to "預覽", product_packet_path(@product, a), :class => "btn btn-info" %>
 
         <%= link_to "編輯", edit_product_packet_path(@product, a), :class => "btn btn-default" %>
 

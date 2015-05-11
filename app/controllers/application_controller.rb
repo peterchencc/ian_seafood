@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   def check_admin
     unless current_user.admin?
-      flash[:alert] = "Nooooooooooo!"
+      flash[:alert] = "非管理者身份不給進!"
       redirect_to root_path
       return
     end

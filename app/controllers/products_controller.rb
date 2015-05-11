@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
     @products = Product.page(params[:page]).per(7)
     @q = Product.ransack(params[:q])
     @products = @q.result(distinct: true).page(params[:page]).per(7)
+    @products = @products.includes(:packets) 
   end
 
   def show
@@ -68,7 +69,7 @@ class ProductsController < ApplicationController
     #Event.destroy_all
     Product.first.destroy
 
-    flash[:alert] = "砍了!"
+    flash[:alert] = "刪除成功"
     redirect_to products_url
   end
 

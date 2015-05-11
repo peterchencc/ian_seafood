@@ -14,6 +14,7 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'paperclip'
 gem 'ransack'
+gem 'rack-mini-profiler', require: false
 
 gem 'nested_form_fields'
 

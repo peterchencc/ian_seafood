@@ -1,16 +1,32 @@
-<h2>料理包</h2>
-<p>名稱: <%= @packet.title %></p>
-<p>介紹: <%= @packet.content %></p>
-<p>價錢: <%= @packet.price %></p>
-<p>影片網址: <%= @packet.video %></p>
-<p>配料描述: <%= @packet.ingredient %></p>
-<p>
-<% @packet.pictures.each do |p| %>
-  <%= p.title %>
-  <%= image_tag p.image(:thumb) %>
-
-<% end %>
-</p>
+<h2><%= @packet.title %>料理包</h2>
+<table class="table" >
+  <tr>
+    <td width="15%">介紹:</td>
+    <td><%= @packet.content %></td>
+  </tr>
+  <tr>
+    <td>價錢: </td>
+    <td><%= @packet.price %></td>
+  </tr>
+  <tr>
+    <td>影片網址:</td>
+    <td><%= @packet.video %></td>
+  </tr>
+  <tr>
+    <td>配料描述: </td>
+    <td><%= @packet.ingredient %></td>
+  </tr>
+  <tr>
+    <td>圖片</td>
+    <td><% @packet.pictures.each do |p| %>
+        <p>
+        <%= p.title %>
+        <%= image_tag p.image(:medium) %>
+        </p>
+        <% end %>
+    </td>
+  </tr>
+</table>
 
 <%= link_to "回料理包列表", product_packets_path(@product), :class => "btn btn-info"%>
 
