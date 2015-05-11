@@ -33,7 +33,6 @@ class ApiV1::AuthController < ApiController
     if success
       render :json => { :message => "Ok",
                         :auth_token => user.authentication_token,
-                        :auth_token => user.email,
                         :user_id => user.id }
     else
       render :json => { :message => "Failed" }, :status => 401
