@@ -27,11 +27,11 @@ class AboutsController < ApplicationController
   end
 
   def edit
-    @about = About.find(1)
+    @about = About.first
   end
 
   def update
-    @about = About.find(1)
+    @about = About.first
 
     if @about.update( about_params )
 

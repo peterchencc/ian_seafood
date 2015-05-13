@@ -30,6 +30,7 @@ Rails.application.routes.draw do
 
     resources :products
     resources :orders
+    resources :abouts
 
     # resources :users # 假設要拿user資料 PATCH /api/v1/users/1234
   end

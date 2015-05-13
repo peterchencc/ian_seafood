@@ -24,7 +24,7 @@
 
 <div class="form-group">
   <%= f.label :image, "產品圖片" %>
-  <%= f.file_field :image %>
+  <%= image_tag( @product.image(:thumb) ) %>
 </div>
 
 
