@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150514020805) do
+ActiveRecord::Schema.define(version: 20150514040501) do
 
   create_table "abouts", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20150514020805) do
     t.string   "status",         limit: 255
     t.integer  "user_id",        limit: 4
     t.string   "payment_method", limit: 255
+    t.integer  "amount",         limit: 4
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree

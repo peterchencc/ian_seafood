@@ -10,9 +10,9 @@ class ApiV1::OrdersController < ApiController
     @order = Order.new( name: params[:name],
                         phone: params[:phone],
                         address: params[:address],
-                        email: params[:email] ,                       
-                        payment_method: params[:payment_method] )
-                        # amount: params[:amount]
+                        email: params[:email],                       
+                        payment_method: params[:payment_method], 
+                        amount: params[:amount] )
 
     Array(params[:line_items]).each do |line_item|
       @order.line_items.build( :product_id => line_item[:product_id],
