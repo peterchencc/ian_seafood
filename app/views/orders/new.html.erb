@@ -1,26 +1,9 @@
+<h1>建立訂單</h1>
+
 <%= form_for @order do |f| %>
-
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
-
-  <p>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </p>
-
-  <p>
-    <%= f.label :phone %>
-    <%= f.text_field :phone %>
-  </p>
-
-  <p>
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
+  <%= f.text_field :name, placeholder: 'NAME' %>
+  <%= f.text_field :address, placeholder: 'ADDRESS' %>
+  <%= f.select :payment_method, %w[Credit ATM] %>
+  <%= f.submit %>
 <% end %>
+

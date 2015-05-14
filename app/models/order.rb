@@ -1,18 +1,23 @@
 class Order < ActiveRecord::Base
 
   validates_presence_of :name
-
+  has_many :line_items
+  has_many :trades
+  has_many :products, through: :line_items
   belongs_to :user
-  has_many :line_items, :dependent => :destroy
 
-  def add_line_items(cart)
-    cart.line_items.each do |item|
-      self.line_items.build( product_id: item.id, qty: item.qty )
-    end
+  def self.new_from_cart cart, params = {}
+    order = self.new params
+    order.line_items = cart.line_items
+    order
+  end
+
+  def paid?
+    trades.exists?(paid: true)
   end
 
   def total
-    self.line_items.sum(:subtotal)
+    line_items.sum(200)
   end
 
 end

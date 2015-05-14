@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   get 'welcome' => 'welcome#index'
   root 'welcome#index'
-
+  
+  post 'allpay/result'
+  post 'allpay/return'
+  
   resources :products do
     collection do
       get :latest
@@ -20,6 +23,10 @@ Rails.application.routes.draw do
     resources :packets
     resource :detail, :controller => "product_details"
 
+  end
+
+  resources :orders, only: %i[show new create] do
+    get :checkout
   end
   resources :orders
   resource :cart
@@ -39,7 +46,7 @@ Rails.application.routes.draw do
   resources :abouts
   
   namespace :admin do
-   resources :products
+   resources :products,:orders
   end
 
   # Example of regular route:
