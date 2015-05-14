@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
   end
 
   def checkout    
-    order = Order.find params[:order_id]
+    order = Order.find params[:id]
     if order.paid?
       redirect_to order, alert: '已經付過款'
     else
@@ -53,6 +53,8 @@ class OrdersController < ApplicationController
       }
       @checkout_params[:CheckMacValue] = allpay.make_mac(@checkout_params)
     end
+
+    render :layout => "simple"
   end
 
   private

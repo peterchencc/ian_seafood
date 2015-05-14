@@ -12,7 +12,7 @@ class AllpayController < ApplicationController
   end
 
   def final
-    render :layout => false
+    render :layout => "simple"
   end
 
   def return
