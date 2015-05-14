@@ -1,7 +1,8 @@
 require 'allpay'
 class AllpayController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_trade
+  
+  before_action :set_trade, :except => :final
 
   def result
     if @trade.save
