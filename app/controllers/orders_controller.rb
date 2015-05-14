@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
 
-  before_action :authenticate_user!
-  before_action :check_admin
+  before_action :authenticate_user!, :except => :checkout
+  before_action :check_admin, :except => :checkout
+
   def index
     @orders = Order.page(params[:page]).per(7)
   end
@@ -24,15 +25,18 @@ class OrdersController < ApplicationController
     end
   end
 
-  def order_checkout_url
-    
-  end
-
-  def checkout
+  def checkout    
     order = Order.find params[:order_id]
     if order.paid?
       redirect_to order, alert: '已經付過款'
     else
+
+      return_url = if Rails.env.production?
+        "http://www.inseason.tw/allpay/return"
+      else
+        'http://requestb.in/14x3b9x1'
+      end
+
       trade = order.trades.create!
       allpay = Allpay.new
       @checkout_params = {
@@ -44,7 +48,7 @@ class OrdersController < ApplicationController
         TradeDesc: :'My Cart',
         ItemName: order.line_items.map{ |i| "#{i.product.name} x #{i.qty}" }.join('#'),
         ChoosePayment: order.payment_method,
-        ReturnURL: 'http://requestb.in/r9vwt1r9',
+        ReturnURL: return_url,
         OrderResultURL: allpay_result_url
       }
       @checkout_params[:CheckMacValue] = allpay.make_mac(@checkout_params)

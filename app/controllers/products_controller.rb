@@ -52,28 +52,25 @@ class ProductsController < ApplicationController
   end
 
   def bulk_update
-  products = params[:ids].map{ |x| Product.find(x) }
+    products = params[:ids].map{ |x| Product.find(x) }
 
-  products.each do |x|
-    if params["btn-delete"]
-      x.destroy
-    elsif params["btn-publish"]
-      x.update( :status => "published" )
+    products.each do |x|
+      if params["btn-delete"]
+        x.destroy
+      elsif params["btn-publish"]
+        x.update( :status => "published" )
+      end
     end
-  end
 
-  redirect_to products_url
+    redirect_to products_url
   end
 
   def bulk_delete
-    #Event.destroy_all
     Product.first.destroy
 
     flash[:alert] = "刪除成功"
     redirect_to products_url
   end
-
-
 
   protected
 

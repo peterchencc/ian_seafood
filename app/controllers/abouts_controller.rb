@@ -1,5 +1,8 @@
 class AboutsController < ApplicationController
+
   before_action :authenticate_user!
+  before_action :check_admin
+
   def index
     @abouts = About.all
   end
@@ -16,7 +19,6 @@ class AboutsController < ApplicationController
     @about = About.new( about_params )
 
     if @about.save
-
       flash[:notice] = "新增成功"
 
       redirect_to abouts_path

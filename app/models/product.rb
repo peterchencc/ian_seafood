@@ -16,6 +16,7 @@ class Product < ActiveRecord::Base
   def rating
     5
   end
+  
   def self.only_published(u)
     where( ["status = ? OR ( status = ? AND user_id = ? )", "published", "draft", u.id ] )
   end

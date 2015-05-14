@@ -36,7 +36,8 @@ RSpec.describe "API_V1::Orders", :type => :request do
     expect(response.body).to eq(
       {
         :message => "OK",
-        :order_id => order.id
+        :order_id => order.id,
+        :pay_url => "http://www.example.com/orders/#{order.id}/checkout"
       }.to_json
     )
 

@@ -1,11 +1,5 @@
 class ApiV1::OrdersController < ApiController
 
-  # before_action :authenticate_user!, only => :index
-
-  # def index
-  #   @orders = current_user.orders
-  # end
-
   def create
     @order = Order.new( name: params[:name],
                         phone: params[:phone],
@@ -24,7 +18,7 @@ class ApiV1::OrdersController < ApiController
     @order.user = current_user
 
     if  @order.save
-        render :json => { :message => "OK", :order_id => @order.id } # :pay_url => order_checkout_url(@order)
+        render :json => { :message => "OK", :order_id => @order.id, :pay_url => checkout_order_url(@order) }
     else
         render :json => { :errors => @order.errors.full_messages }, :status => 400
     end

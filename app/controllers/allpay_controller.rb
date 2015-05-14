@@ -5,10 +5,14 @@ class AllpayController < ApplicationController
 
   def result
     if @trade.save
-      redirect_to orders_path, alert: '交易成功'
+      redirect_to allpay_final_path, alert: '交易成功'
     else
-      redirect_to orders_path, alert: '交易失敗'
+      redirect_to allpay_final_path, alert: '交易失敗'
     end
+  end
+
+  def final
+    render :layout => false
   end
 
   def return
@@ -17,7 +21,7 @@ class AllpayController < ApplicationController
     else
      render text: :'0|ErrorMessage'
     end
-  end
+  end  
 
 private
 

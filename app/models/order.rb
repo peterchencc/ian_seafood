@@ -17,7 +17,7 @@ class Order < ActiveRecord::Base
   end
 
   def total
-    line_items.sum(200)
+    line_items.sum(:subtotal)
   end
 
 end

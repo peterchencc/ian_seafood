@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   
   post 'allpay/result'
   post 'allpay/return'
-  
+  get  'allpay/final'
+
   resources :products do
     collection do
       get :latest
@@ -22,13 +23,13 @@ Rails.application.routes.draw do
     end
     resources :packets
     resource :detail, :controller => "product_details"
-
   end
 
-  resources :orders, only: %i[show new create] do
-    get :checkout
+  resources :orders do
+    get :checkout, :on => :member
   end
-  resources :orders
+
+  resources :abouts
   resource :cart
 
   scope :path => '/api/v1/', :module => "api_v1", :defaults => { :format => :json }, :as => 'v1' do
@@ -39,14 +40,7 @@ Rails.application.routes.draw do
     resources :orders
     resources :abouts
 
-    # resources :users # 假設要拿user資料 PATCH /api/v1/users/1234
-  end
-
-  resources :products
-  resources :abouts
-  
-  namespace :admin do
-   resources :products,:orders
+    # resources :users # 假設要修改user資料 PATCH /api/v1/users/1234
   end
 
   # Example of regular route:
