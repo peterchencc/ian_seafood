@@ -52,9 +52,9 @@ class OrdersController < ApplicationController
         OrderResultURL: allpay_result_url
       }
       @checkout_params[:CheckMacValue] = allpay.make_mac(@checkout_params)
-    end
 
-    render :layout => "simple"
+      render :layout => "simple"
+    end
   end
 
   private
