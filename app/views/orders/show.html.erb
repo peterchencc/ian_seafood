@@ -1,12 +1,16 @@
-<h1>訂單 #<%= @order.id %></h1>
+<h2>訂單 NO.<%= @order.id %></h2>
 
-<%= link_to '結帳', checkout_order_path(@order) %>
+<%#= link_to '結帳', checkout_order_path(@order) %>
 
-<h1>明細</h1>
-<table>
-  <thead>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">訂單明細</div>
+
+  <!-- Table -->
+  <table class="table">
+   <thead>
     <tr>
-      <th>產品</th> <th>單價</th> <th>數量</th> <th>小計</th>
+      <th width="20%">產品</th><th width="10%">單價</th> <th width="10%">數量</th><th width="10%">小計</th>
     </tr>
   </thead>
   <tbody>
@@ -24,13 +28,14 @@
       <td><%= @order.total %></td>
     </tr>
   </tbody>
-</table>
+  </table>
+</div>
 
-
-<h1>交易紀錄</h1>
-
-<ul>
-  <% @order.trades.each do |trade| %>
-  <li><%= trade.trade_number %> <%= trade.paid? ? :已付款 : :未付款 %></li>
-  <% end %>
-</ul>
+<h3>交易紀錄</h3>
+<div class="order-history">
+  <ul>
+    <% @order.trades.each do |trade| %>
+    <li><%= trade.paid? ? icon("bell") : icon("remove") %> <%= trade.trade_number %> <%= trade.paid? ? :已付款 : :未付款 %></li>
+    <% end %>
+  </ul>
+</div>
