@@ -23,5 +23,4 @@ class ApiV1::OrdersController < ApiController
         render :json => { :errors => @order.errors.full_messages }, :status => 400
     end
   end
-
 end

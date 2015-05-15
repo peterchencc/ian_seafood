@@ -10,17 +10,23 @@
   <table class="table">
    <thead>
     <tr>
-      <th width="20%">產品</th><th width="10%">單價</th> <th width="10%">數量</th><th width="10%">小計</th>
+      <th width="20%">產品</th><th width="10%">總價</th> <th width="10%">數量</th><th width="10%">小計</th>
     </tr>
   </thead>
   <tbody>
     <% @order.line_items.each do |line_item| %>
       <tr>
-        <td><%= link_to line_item.product.name, line_item.product %></td>
+        <td><%= link_to line_item.product.name, product_path(line_item.product) %></td>
         <td><%= line_item.subtotal %></td>
         <td><%= line_item.qty %></td>
         <td><%= line_item.amount %></td>
       </tr>
+      <% if line_item.packet %>
+      <tr>
+        <td colspan="2"><%= link_to line_item.packet.title, product_packet_path(line_item.product, line_item.packet) %></td>
+        <td colspan="2"></td>
+      </tr>
+      <% end %>
     <% end %>
     <tr>
       <td colspan="2"></td>

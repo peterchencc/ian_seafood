@@ -1,5 +1,4 @@
 class Product < ActiveRecord::Base
-
   has_many :packets, :dependent => :destroy
   has_many :line_items
 
