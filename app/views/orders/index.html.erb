@@ -2,7 +2,13 @@
   <% @orders.each do |e| %>
     <tr>
       <td>
+        <%= e.trade.trade_number %>
+      </td>
+      <td>
         <%= e.name %>
+      </td>
+      <td>
+        <%= e.phone %>
       </td>
       <td>
       <%= link_to "詳細", order_path(e), :class => "btn btn-primary" %>
