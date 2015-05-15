@@ -9,6 +9,7 @@
       </td>
       <td>
       <%= link_to "詳細", order_path(e), :class => "btn btn-primary" %>
+      <%= link_to "刪除", order_path(e), :method => "delete", :class => "btn btn-danger" %>
       </td>
       <td>
         <%= e.created_at.to_s(:short) %>

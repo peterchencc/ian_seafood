@@ -15,6 +15,12 @@ class OrdersController < ApplicationController
     @order = Order.new
   end
 
+  def destroy
+    @order = Order.find(params[:id])
+    @order.destroy
+    redirect_to orders_url
+  end
+
   def create
     @order = Order.new_from_cart current_cart, order_params
     if @order.save
