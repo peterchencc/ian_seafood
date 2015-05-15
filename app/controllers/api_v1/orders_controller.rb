@@ -1,8 +1,7 @@
 class ApiV1::OrdersController < ApiController
 
   def create
-    @order = Order.new( auth_token: params[:auth_token],
-                        user_email: params[:user_email],
+    @order = Order.new( user_email: params[:user_email],
                         name: params[:name],
                         phone: params[:phone],
                         address: params[:address],
@@ -17,7 +16,12 @@ class ApiV1::OrdersController < ApiController
                                :qty => line_item[:qty] )
     end
 
-    @order.user = current_user
+    if current_user
+      @order.user = current_user
+    else
+      user = User.find_by_email( @order.email )
+      @order.user = user
+    end
 
     if  @order.save
         render :json => { :message => "OK", :order_id => @order.id, :pay_url => checkout_order_url(@order) }

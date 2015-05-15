@@ -2,6 +2,12 @@
   <% @orders.each do |e| %>
     <tr>
       <td>
+        <% if e.user %>
+          <%= e.user.id %>
+          <%= e.user.name %>
+        <% end %>
+      </td>
+      <td>
         <%= e.name %>
       </td>
       <td>

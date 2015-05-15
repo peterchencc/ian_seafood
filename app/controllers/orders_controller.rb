@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.page(params[:page]).per(7)
+
   end
 
   def show
