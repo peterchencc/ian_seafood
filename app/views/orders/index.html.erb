@@ -1,5 +1,12 @@
 <table class="table table-bordered order-index">
   <% @orders.each do |e| %>
+  <tr>
+    <td>使用者</td>
+    <td>收件人</td>
+    <td>聯絡電話</td>
+    <td></td>
+    <td>建立時間</td>
+  </tr>
     <tr>
       <td>
         <% if e.user %>
