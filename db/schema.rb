@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150514072544) do
+ActiveRecord::Schema.define(version: 20150515100137) do
 
   create_table "abouts", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 20150514072544) do
     t.integer  "user_id",        limit: 4
     t.string   "payment_method", limit: 255
     t.integer  "amount",         limit: 4
+    t.string   "auth_token",     limit: 255
+    t.string   "user_email",     limit: 255
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
@@ -96,6 +98,7 @@ ActiveRecord::Schema.define(version: 20150514072544) do
     t.integer  "image_file_size",    limit: 4
     t.datetime "image_updated_at"
     t.string   "status",             limit: 255,   default: "draft"
+    t.integer  "row_order",          limit: 4
   end
 
   create_table "trades", force: :cascade do |t|

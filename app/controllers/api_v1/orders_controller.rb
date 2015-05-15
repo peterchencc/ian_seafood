@@ -1,7 +1,9 @@
 class ApiV1::OrdersController < ApiController
 
   def create
-    @order = Order.new( name: params[:name],
+    @order = Order.new( auth_token: params[:auth_token],
+                        user_email: params[:user_email],
+                        name: params[:name],
                         phone: params[:phone],
                         address: params[:address],
                         email: params[:email],                       

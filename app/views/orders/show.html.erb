@@ -23,7 +23,7 @@
       </tr>
       <% if line_item.packet %>
       <tr>
-        <td colspan="2"><%= link_to line_item.packet.title, product_packet_path(line_item.product, line_item.packet) %></td>
+        <td colspan="2">     <%= link_to line_item.packet.title, product_packet_path(line_item.product, line_item.packet) %></td>
         <td colspan="2"></td>
       </tr>
       <% end %>
