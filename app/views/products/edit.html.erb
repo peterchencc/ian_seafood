@@ -1,5 +1,7 @@
+<div class="about">
 <%= form_for @product, :url => product_path(@product), :method => :patch do |f| %>
 
   <%= render :partial => "form", :locals => { :f => f } %>
 
 <% end %>
+</div>
