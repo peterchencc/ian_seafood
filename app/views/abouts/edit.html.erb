@@ -1,3 +1,4 @@
+<div class="about">
 <%= form_for @about, :url => about_path(@about), :method => :patch do |f| %>
 
   <% if @about.errors.any? %>
@@ -11,7 +12,7 @@
   <%= f.text_field :title, :size => "40" %>
 <br>
   <h5>內容</h5>
-  <%= f.text_area :content, :size => "60x10", :class => "vertical-base"%>
+  <%= f.text_area :content, :size => "50x10", :class => "vertical-base"%>
 <p>
   <%= f.label "電子信箱" %>
   <%= f.text_field :email, :size => "40" %>
@@ -24,3 +25,4 @@
 </p>
   <%= f.submit "送出", :class => "btn btn-primary" %>
 <% end %>
+</div>
