@@ -1,8 +1,8 @@
 class Order < ActiveRecord::Base
 
   validates_presence_of :name
-  has_many :line_items, :dependent => :destroy
-  has_many :trades, :dependent => :destroy
+  has_many :line_items
+  has_many :trades
   has_many :products, through: :line_items
   belongs_to :user
 
