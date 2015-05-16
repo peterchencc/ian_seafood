@@ -1,31 +1,38 @@
 <table class="table table-bordered order-index">
-  <% @orders.each do |e| %>
+  <% @orders.each do |o| %>
   <tr>
     <td>使用者</td>
     <td>收件人</td>
+    <td>訂單編號</td>
     <td>聯絡電話</td>
     <td></td>
     <td>建立時間</td>
   </tr>
+
     <tr>
       <td>
-        <% if e.user %>
-          <%= e.user.id %>
-          <%= e.user.name %>
+        <% if o.user %>
+          <%= o.user.id %>
+          <%= o.user.name %>
         <% end %>
       </td>
       <td>
-        <%= e.name %>
+        <%= o.name %>
       </td>
       <td>
-        <%= e.phone %>
+        <% o.trades.each do |t| %>
+          <%= t.trade_number %> 
+        <% end %>
       </td>
       <td>
-      <%= link_to "詳細", order_path(e), :class => "btn btn-primary" %>
-      <%= link_to "刪除", order_path(e), :method => "delete", :class => "btn btn-danger" %>
+        <%= o.phone %>
       </td>
       <td>
-        <%= e.created_at.to_s(:short) %>
+      <%= link_to "詳細", order_path(o), :class => "btn btn-primary" %>
+      <%= link_to "刪除", order_path(o), :method => "delete", :class => "btn btn-danger" %>
+      </td>
+      <td>
+        <%= o.created_at.to_s(:short) %>
       </td>
     </tr>
   <% end %>

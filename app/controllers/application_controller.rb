@@ -16,20 +16,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def current_cart
-    @cart || set_cart
-  end
-
-  def set_cart
-    if session[:cart_id]
-      @cart = Cart.find_by_id( session[:cart_id] )
-    end
-    @cart ||= Cart.create
-
-    session[:cart_id] = @cart.id
-    @cart
-  end
-
   def after_sign_in_path_for(resource)
     products_path
   end

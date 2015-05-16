@@ -4,12 +4,10 @@ class ProductsController < ApplicationController
   before_action :check_admin
 
   def index
-    @products = Product.all
-    @products = @products.only_published(current_user)
-    @products = Product.page(params[:page]).per(7)
+
     @q = Product.ransack(params[:q])
     @products = @q.result(distinct: true).page(params[:page]).per(7)
-    @products = @products.includes(:packets) 
+
   end
 
   def show

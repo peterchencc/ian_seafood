@@ -4,8 +4,7 @@ class OrdersController < ApplicationController
   before_action :check_admin, :except => :checkout
 
   def index
-    @orders = Order.page(params[:page]).per(7)
-
+    @orders = Order.includes(:user).page(params[:page]).per(7)
   end
 
   def show
