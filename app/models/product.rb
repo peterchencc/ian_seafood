@@ -13,7 +13,7 @@ class Product < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   def rating
-    5
+    rand(30)
   end
   
   def self.only_published(u)
