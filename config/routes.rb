@@ -15,9 +15,6 @@ Rails.application.routes.draw do
 
   resources :products do
     collection do
-      get :latest
-      get :popular
-
       post :bulk_update
       post :bulk_delete
     end
@@ -40,7 +37,8 @@ Rails.application.routes.draw do
     resources :orders
     resources :abouts
 
-    # resources :users # 假設要修改user資料 PATCH /api/v1/users/1234
+    resources :users #假設要修改user資料 PATCH /api/v1/users/1234
+    
   end
 
   # Example of regular route:
