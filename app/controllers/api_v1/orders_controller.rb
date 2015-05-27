@@ -1,8 +1,7 @@
 class ApiV1::OrdersController < ApiController
 
   def create
-    @order = Order.new( user_email: params[:user_email],
-                        name: params[:name],
+    @order = Order.new( name: params[:name],
                         phone: params[:phone],
                         address: params[:address],
                         email: params[:email],                       
